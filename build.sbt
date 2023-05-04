@@ -9,8 +9,8 @@ lazy val itkit =
       name         := "itkit-pekko",
       organization := "io.moia",
       licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit"), "scm:git@github.com:moia-oss/itkit.git")),
-      homepage := Some(url("https://github.com/moia-oss/itkit"))
+      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
+      homepage := Some(url("https://github.com/moia-oss/itkit-pekko"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
@@ -147,7 +147,7 @@ lazy val sonatypeSettings = {
     publishTo              := sonatypePublishTo.value,
     sonatypeProfileName    := organization.value,
     publishMavenStyle      := true,
-    sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit", "oss-support@moia.io")),
+    sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit-pekko", "oss-support@moia.io")),
     credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
   )
 }
