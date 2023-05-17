@@ -93,8 +93,7 @@ lazy val commonSettings =
     sbtSettings ++
     scalaFmtSettings ++
     scapegoatSettings ++
-    sbtGitSettings ++
-    mimaSettings
+    sbtGitSettings
 
 lazy val compilerSettings =
   Seq(
@@ -172,6 +171,3 @@ lazy val sbtGitSettings = Seq(
   }
 )
 
-lazy val mimaSettings = Seq(
-  mimaPreviousArtifacts := Set("io.moia" %% "itkit" % "2.0.0")
-)
