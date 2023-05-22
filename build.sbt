@@ -62,7 +62,7 @@ lazy val library =
       val pekko        = "0.0.0+26602-317cbb52-SNAPSHOT"
       val pekkoHttp    = "0.0.0+4270-1cfacad4-SNAPSHOT"
       val log4j        = "2.20.0"
-      val pureConfig   = "0.17.3"
+      val pureConfig   = "0.17.4"
       val scalaCheck   = "1.17.0"
       val scalaLogging = "3.9.5"
       val scalaTest    = "3.2.15"
@@ -170,4 +170,3 @@ lazy val sbtGitSettings = Seq(
     case _                              => None
   }
 )
-
