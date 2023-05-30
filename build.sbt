@@ -65,7 +65,7 @@ lazy val library =
       val pureConfig   = "0.17.4"
       val scalaCheck   = "1.17.0"
       val scalaLogging = "3.9.5"
-      val scalaTest    = "3.2.15"
+      val scalaTest    = "3.2.16"
     }
     val pekkoActor        = "org.apache.pekko"           %% "pekko-actor-typed"         % Version.pekko
     val pekkoHttp         = "org.apache.pekko"           %% "pekko-http"                % Version.pekkoHttp
