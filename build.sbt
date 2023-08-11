@@ -9,8 +9,8 @@ lazy val itkit =
       name         := "itkit-pekko",
       organization := "io.moia",
       licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
-      homepage := Some(url("https://github.com/moia-oss/itkit-pekko"))
+      scmInfo      := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
+      homepage     := Some(url("https://github.com/moia-oss/itkit-pekko"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
@@ -18,8 +18,6 @@ lazy val itkit =
       GitBranchPrompt
     )
     .settings(sonatypeSettings: _*)
-    .configs(IntegrationTest)
-    .settings(Defaults.itSettings: _*)
     .settings(commonSettings)
     .settings(
       libraryDependencies ++= Seq(
@@ -43,14 +41,24 @@ lazy val itkit =
 lazy val samples =
   project
     .in(file("samples"))
-    .configs(IntegrationTest)
+    .configs(IntegrationWithTest)
     .dependsOn(itkit)
-    .settings(Defaults.itSettings: _*)
+    .settings(IntegrationTestSettings: _*)
     .settings(commonSettings)
     .settings(
       fork            := true,
       publishArtifact := false
     )
+
+lazy val IntegrationWithTest     = config("it").extend(Test)
+lazy val IntegrationTestSettings = inConfig(IntegrationWithTest)(IntegrationTestConfig)
+lazy val IntegrationTestConfig   =
+  Defaults.configSettings ++ Defaults.testTasks ++ org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings ++ Seq(
+    IntegrationWithTest / publish / skip    := true,
+    IntegrationWithTest / fork              := true,
+    IntegrationWithTest / scalaSource       := baseDirectory.value / "src" / "it" / "scala",
+    IntegrationWithTest / resourceDirectory := baseDirectory.value / "src" / "it" / "resources"
+  )
 
 // *****************************************************************************
 // Dependencies
@@ -159,9 +167,9 @@ lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.2")
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
 lazy val sbtGitSettings = Seq(
-  git.useGitDescribe       := true,
-  git.baseVersion          := "0.0.0",
-  git.uncommittedSignifier := None,
+  git.useGitDescribe        := true,
+  git.baseVersion           := "0.0.0",
+  git.uncommittedSignifier  := None,
   git.gitTagToVersionNumber := {
     case sbtVersionRegex(v, "")         => Some(v)
     case sbtVersionRegex(v, "SNAPSHOT") => Some(s"$v-SNAPSHOT")
