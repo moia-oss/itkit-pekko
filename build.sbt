@@ -124,7 +124,6 @@ lazy val compilerSettings =
     ),
     Compile / unmanagedSourceDirectories := Seq((Compile / scalaSource).value),
     Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value),
-    resolvers += "Apache Pekko Snapshots".at("https://repository.apache.org/content/groups/snapshots")
   )
 
 lazy val gitSettings = Seq(git.useGitDescribe := true)
