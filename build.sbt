@@ -9,8 +9,8 @@ lazy val itkit =
       name         := "itkit-pekko",
       organization := "io.moia",
       licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo      := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
-      homepage     := Some(url("https://github.com/moia-oss/itkit-pekko"))
+      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
+      homepage := Some(url("https://github.com/moia-oss/itkit-pekko"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
@@ -52,7 +52,7 @@ lazy val samples =
 
 lazy val IntegrationWithTest     = config("it").extend(Test)
 lazy val IntegrationTestSettings = inConfig(IntegrationWithTest)(IntegrationTestConfig)
-lazy val IntegrationTestConfig   =
+lazy val IntegrationTestConfig =
   Defaults.configSettings ++ Defaults.testTasks ++ org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings ++ Seq(
     IntegrationWithTest / publish / skip    := true,
     IntegrationWithTest / fork              := true,
@@ -131,7 +131,7 @@ lazy val compilerSettings =
       "1.8"
     ),
     Compile / unmanagedSourceDirectories := Seq((Compile / scalaSource).value),
-    Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value),
+    Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value)
   )
 
 lazy val gitSettings = Seq(git.useGitDescribe := true)
@@ -167,9 +167,9 @@ lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "2.1.2")
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
 lazy val sbtGitSettings = Seq(
-  git.useGitDescribe        := true,
-  git.baseVersion           := "0.0.0",
-  git.uncommittedSignifier  := None,
+  git.useGitDescribe       := true,
+  git.baseVersion          := "0.0.0",
+  git.uncommittedSignifier := None,
   git.gitTagToVersionNumber := {
     case sbtVersionRegex(v, "")         => Some(v)
     case sbtVersionRegex(v, "SNAPSHOT") => Some(s"$v-SNAPSHOT")
