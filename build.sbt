@@ -69,7 +69,7 @@ lazy val library =
     object Version {
       val pekko        = "1.0.1"
       val pekkoHttp    = "1.0.0"
-      val log4j        = "2.21.1"
+      val log4j        = "2.22.0"
       val pureConfig   = "0.17.4"
       val scalaCheck   = "1.17.0"
       val scalaLogging = "3.9.5"
