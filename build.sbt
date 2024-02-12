@@ -67,12 +67,12 @@ lazy val IntegrationTestConfig =
 lazy val library = new {
   object Version {
     val pekko        = "1.0.2"
-    val pekkoHttp    = "1.0.0"
+    val pekkoHttp    = "1.0.1"
     val log4j        = "2.22.1"
     val pureConfig   = "0.17.5"
     val scalaCheck   = "1.17.0"
     val scalaLogging = "3.9.5"
-    val scalaTest    = "3.2.17"
+    val scalaTest    = "3.2.18"
   }
   val pekkoActor        = "org.apache.pekko"           %% "pekko-actor-typed"         % Version.pekko
   val pekkoHttp         = "org.apache.pekko"           %% "pekko-http"                % Version.pekkoHttp
