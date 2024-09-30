@@ -68,7 +68,7 @@ lazy val library = new {
   object Version {
     val pekko        = "1.1.1"
     val pekkoHttp    = "1.0.1"
-    val log4j        = "2.24.0"
+    val log4j        = "2.24.1"
     val pureConfig   = "0.17.7"
     val scalaCheck   = "1.18.1"
     val scalaLogging = "3.9.5"
@@ -103,7 +103,7 @@ lazy val commonSettings =
     sbtGitSettings
 
 lazy val compilerSettings = Seq(
-  scalaVersion                                                       := "2.13.14",
+  scalaVersion                                                       := "2.13.15",
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
@@ -154,7 +154,7 @@ lazy val sbtSettings = Seq(cancelable in Global := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 
-lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "3.0.0")
+lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "3.0.3")
 
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
