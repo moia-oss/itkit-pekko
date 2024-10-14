@@ -4,7 +4,7 @@ resolvers +=
 
 // Use git in sbt, show git prompt and use versions from git.
 // sbt> git <your git command>
-addSbtPlugin("com.github.sbt" % "sbt-git" % "2.0.1")
+addSbtPlugin("com.github.sbt" % "sbt-git" % "2.1.0")
 
 // Automatically adds license information to each source code file.
 addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.10.0")
@@ -19,7 +19,7 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.2")
 addSbtPlugin("com.sksamuel.scapegoat" % "sbt-scapegoat" % "1.2.6")
 
 // Publish to sonatype
-addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.11.3")
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.12.2")
 
 // publishSigned
 addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.3.0")
