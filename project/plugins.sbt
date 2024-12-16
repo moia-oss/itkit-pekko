@@ -22,4 +22,4 @@ addSbtPlugin("com.sksamuel.scapegoat" % "sbt-scapegoat" % "1.2.8")
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.12.2")
 
 // publishSigned
-addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.3.0")
+addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.3.1")
