@@ -53,7 +53,7 @@ lazy val samples =
 lazy val IntegrationWithTest     = config("it").extend(Test)
 lazy val IntegrationTestSettings = inConfig(IntegrationWithTest)(IntegrationTestConfig)
 lazy val IntegrationTestConfig =
-  Defaults.configSettings ++ Defaults.testTasks ++ org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings ++ Seq(
+  Defaults.configSettings ++ Defaults.testTasks ++ org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings(IntegrationWithTest) ++ Seq(
     IntegrationWithTest / publish / skip    := true,
     IntegrationWithTest / fork              := true,
     IntegrationWithTest / scalaSource       := baseDirectory.value / "src" / "it" / "scala",
