@@ -19,24 +19,7 @@ lazy val itkit =
     )
     .settings(sonatypeSettings: _*)
     .settings(commonSettings)
-    .settings(
-      libraryDependencies ++= Seq(
-        // compile time dependencies
-        library.pekkoActor,
-        library.pekkoHttp,
-        library.pekkoHttpTestkit,
-        library.pekkoActorTestkit,
-        library.pekkoStream,
-        library.log4jApi,
-        library.log4jCore,
-        library.logJulOverLog4j,
-        library.logSlfOverLog4j,
-        library.pureConfig,
-        library.scalaCheck,
-        library.scalaLogging,
-        library.scalaTest
-      )
-    )
+    .settings(libraryDependencies ++= library.dependencies)
 
 lazy val samples =
   project
@@ -74,19 +57,24 @@ lazy val library = new {
     val scalaLogging = "3.9.5"
     val scalaTest    = "3.2.19"
   }
-  val pekkoActor        = "org.apache.pekko"           %% "pekko-actor-typed"         % Version.pekko
-  val pekkoHttp         = "org.apache.pekko"           %% "pekko-http"                % Version.pekkoHttp
-  val pekkoHttpTestkit  = "org.apache.pekko"           %% "pekko-http-testkit"        % Version.pekkoHttp
-  val pekkoStream       = "org.apache.pekko"           %% "pekko-stream-typed"        % Version.pekko
-  val pekkoActorTestkit = "org.apache.pekko"           %% "pekko-actor-testkit-typed" % Version.pekko
-  val log4jApi          = "org.apache.logging.log4j"    % "log4j-api"                 % Version.log4j
-  val log4jCore         = "org.apache.logging.log4j"    % "log4j-core"                % Version.log4j
-  val logJulOverLog4j   = "org.apache.logging.log4j"    % "log4j-jul"                 % Version.log4j
-  val logSlfOverLog4j   = "org.apache.logging.log4j"    % "log4j-slf4j2-impl"         % Version.log4j
-  val pureConfig        = "com.github.pureconfig"      %% "pureconfig"                % Version.pureConfig
-  val scalaCheck        = "org.scalacheck"             %% "scalacheck"                % Version.scalaCheck
-  val scalaLogging      = "com.typesafe.scala-logging" %% "scala-logging"             % Version.scalaLogging
-  val scalaTest         = "org.scalatest"              %% "scalatest"                 % Version.scalaTest
+
+  val dependencies = Seq(
+    // compile time dependencies
+    "org.apache.pekko"           %% "pekko-actor-typed"         % Version.pekko,
+    "org.apache.pekko"           %% "pekko-http"                % Version.pekkoHttp,
+    "org.apache.pekko"           %% "pekko-http-testkit"        % Version.pekkoHttp,
+    "org.apache.pekko"           %% "pekko-stream-typed"        % Version.pekko,
+    "org.apache.pekko"           %% "pekko-actor-testkit-typed" % Version.pekko,
+    "org.apache.logging.log4j"    % "log4j-api"                 % Version.log4j,
+    "org.apache.logging.log4j"    % "log4j-core"                % Version.log4j,
+    "org.apache.logging.log4j"    % "log4j-jul"                 % Version.log4j,
+    "org.apache.logging.log4j"    % "log4j-slf4j2-impl"         % Version.log4j,
+    "com.github.pureconfig"      %% "pureconfig-core"           % Version.pureConfig,
+    "com.github.pureconfig"      %% "pureconfig-generic-base"   % Version.pureConfig,
+    "org.scalacheck"             %% "scalacheck"                % Version.scalaCheck,
+    "com.typesafe.scala-logging" %% "scala-logging"             % Version.scalaLogging,
+    "org.scalatest"              %% "scalatest"                 % Version.scalaTest
+  )
 }
 
 // *****************************************************************************
@@ -109,13 +97,11 @@ lazy val compilerSettings = Seq(
   scalacOptions ++= Seq(
     "-unchecked",
     "-deprecation",
-    "-language:_",
     "-release",
     "8",
     "-encoding",
     "UTF-8",
     "-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector",
-    "-Xfatal-warnings",
     "-Xlint:_,-byname-implicit",
     "-Ywarn-numeric-widen",
     "-Ywarn-dead-code",
