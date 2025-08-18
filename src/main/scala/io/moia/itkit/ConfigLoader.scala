@@ -23,16 +23,16 @@ object ConfigLoader extends Logger {
     ConfigReader.forProduct1("loglevel")(ClientPekkaConfig.apply)
   implicit private val clientConfigReader: ConfigReader[ClientConfig] = ConfigReader.forProduct1("pekko")(ClientConfig.apply)
   implicit private val processConfigReader: ConfigReader[ProcessConfig] = ConfigReader.forProduct10(
-    "awaitLogTimeout",
-    "initialMemoryAllocationPool",
-    "maximumMemoryAllocationPool",
-    "concGCThreads",
-    "parallelGCThreads",
-    "parallelismMin",
+    "await-log-timeout",
+    "initial-memory-allocation-pool",
+    "maximum-memory-allocation-pool",
+    "conc-g-c-threads",
+    "parallel-g-c-threads",
+    "parallelism-min",
     "factor",
-    "parallelismMax",
-    "minThreads",
-    "maxThreads"
+    "parallelism-max",
+    "min-threads",
+    "max-threads"
   )(ProcessConfig.apply)
   implicit private val configReader: ConfigReader[Config] = ConfigReader.forProduct2("process", "client")(Config.apply)
 }
