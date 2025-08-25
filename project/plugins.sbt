@@ -14,9 +14,7 @@ addSbtPlugin("de.heikoseeberger" % "sbt-header" % "5.10.0")
 // Formatting takes place before the project is compiled.
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.5")
 
-// Static code analysis.
-// sbt> scapegoat
-addSbtPlugin("com.sksamuel.scapegoat" % "sbt-scapegoat" % "1.2.13")
+
 
 // Publish to sonatype
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.12.2")

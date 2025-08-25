@@ -3,6 +3,8 @@ lib_managed
 project/project
 target
 /.bsp/sbt.json
+sbt/
+sbt-*.tgz
 
 # Worksheets (Eclipse or IntelliJ)
 *.sc
