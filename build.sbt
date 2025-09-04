@@ -87,7 +87,6 @@ lazy val commonSettings =
     licenseSettings ++
     sbtSettings ++
     scalaFmtSettings ++
-    scapegoatSettings ++
     sbtGitSettings
 
 lazy val compilerSettings = Seq(
@@ -139,8 +138,6 @@ lazy val sonatypeSettings = {
 lazy val sbtSettings = Seq(cancelable in Global := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
-
-lazy val scapegoatSettings = Seq(ThisBuild / scapegoatVersion := "3.1.9")
 
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
