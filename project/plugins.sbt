@@ -12,7 +12,7 @@ addSbtPlugin("com.github.sbt" % "sbt-header" % "5.11.0")
 // Formatting in scala
 // See .scalafmt.conf for configuration details.
 // Formatting takes place before the project is compiled.
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.5")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.6")
 
 // Publish to sonatype
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.12.2")
