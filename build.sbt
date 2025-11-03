@@ -35,7 +35,7 @@ lazy val samples =
 
 lazy val IntegrationWithTest     = config("it").extend(Test)
 lazy val IntegrationTestSettings = inConfig(IntegrationWithTest)(IntegrationTestConfig)
-lazy val IntegrationTestConfig =
+lazy val IntegrationTestConfig   =
   Defaults.configSettings ++ Defaults.testTasks ++ org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings(IntegrationWithTest) ++ Seq(
     IntegrationWithTest / publish / skip    := true,
     IntegrationWithTest / fork              := true,
@@ -142,9 +142,9 @@ lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 lazy val sbtVersionRegex = "v([0-9]+.[0-9]+.[0-9]+)-?(.*)?".r
 
 lazy val sbtGitSettings = Seq(
-  git.useGitDescribe       := true,
-  git.baseVersion          := "0.0.0",
-  git.uncommittedSignifier := None,
+  git.useGitDescribe        := true,
+  git.baseVersion           := "0.0.0",
+  git.uncommittedSignifier  := None,
   git.gitTagToVersionNumber := {
     case sbtVersionRegex(v, "")         => Some(v)
     case sbtVersionRegex(v, "SNAPSHOT") => Some(s"$v-SNAPSHOT")
