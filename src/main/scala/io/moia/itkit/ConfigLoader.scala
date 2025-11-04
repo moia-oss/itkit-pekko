@@ -21,7 +21,7 @@ object ConfigLoader extends Logger {
 
   implicit private val clientPekkaConfigReader: ConfigReader[ClientPekkaConfig] =
     ConfigReader.forProduct1("loglevel")(ClientPekkaConfig.apply)
-  implicit private val clientConfigReader: ConfigReader[ClientConfig] = ConfigReader.forProduct1("pekko")(ClientConfig.apply)
+  implicit private val clientConfigReader: ConfigReader[ClientConfig]   = ConfigReader.forProduct1("pekko")(ClientConfig.apply)
   implicit private val processConfigReader: ConfigReader[ProcessConfig] = ConfigReader.forProduct10(
     "await-log-timeout",
     "initial-memory-allocation-pool",
