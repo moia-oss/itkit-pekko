@@ -90,7 +90,7 @@ lazy val commonSettings =
     sbtGitSettings
 
 lazy val compilerSettings = Seq(
-  crossScalaVersions                                                 := Seq("2.13.17", "3.7.3"),
+  crossScalaVersions                                                 := Seq("2.13.17", "3.7.4"),
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
