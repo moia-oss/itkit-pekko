@@ -116,8 +116,8 @@ lazy val compilerSettings = Seq(
     "-target",
     "1.8"
   ),
-  Compile / unmanagedSourceDirectories := Seq((Compile / scalaSource).value),
-  Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value)
+  Compile / unmanagedSourceDirectories                               := Seq((Compile / scalaSource).value),
+  Test / unmanagedSourceDirectories                                  := Seq((Test / scalaSource).value)
 )
 
 lazy val gitSettings = Seq(git.useGitDescribe := true)
