@@ -6,11 +6,13 @@ lazy val itkit =
   project
     .in(file("."))
     .settings(
-      name         := "itkit-pekko",
-      organization := "io.moia",
-      licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
-      homepage := Some(url("https://github.com/moia-oss/itkit-pekko"))
+      name                 := "itkit-pekko",
+      organization         := "io.moia",
+      organizationName     := "MOIA",
+      organizationHomepage := Some(url("https://moia.io/")),
+      licenses             := List(("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0"))),
+      scmInfo              := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
+      homepage             := Some(url("https://github.com/moia-oss/itkit-pekko"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
