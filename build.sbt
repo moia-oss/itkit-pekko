@@ -17,7 +17,7 @@ lazy val itkit =
       GitVersioning,
       GitBranchPrompt
     )
-    .settings(sonatypeSettings: _*)
+    .settings(sonatypeSettings *)
     .settings(commonSettings)
     .settings(libraryDependencies ++= library.dependencies)
 
@@ -26,7 +26,7 @@ lazy val samples =
     .in(file("samples"))
     .configs(IntegrationWithTest)
     .dependsOn(itkit)
-    .settings(IntegrationTestSettings: _*)
+    .settings(IntegrationTestSettings *)
     .settings(commonSettings)
     .settings(
       fork            := true,
@@ -126,7 +126,7 @@ lazy val licenseSettings = Seq(
 )
 
 lazy val sonatypeSettings = {
-  import xerial.sbt.Sonatype._
+  import xerial.sbt.Sonatype.*
   Seq(
     publishTo              := sonatypePublishTo.value,
     sonatypeProfileName    := organization.value,
