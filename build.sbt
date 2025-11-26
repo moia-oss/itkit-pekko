@@ -130,7 +130,7 @@ lazy val licenseSettings = Seq(
 lazy val sonatypeSettings = {
   import xerial.sbt.Sonatype.*
   Seq(
-    publishTo              := sonatypePublishTo.value,
+    publishTo              := localStaging.value,
     sonatypeProfileName    := organization.value,
     publishMavenStyle      := true,
     sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit-pekko", "oss-support@moia.io")),
