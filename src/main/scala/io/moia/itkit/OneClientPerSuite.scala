@@ -36,7 +36,7 @@ trait OneClientPerSuite extends AsyncTestSuiteMixin with ClientProvider { this: 
     status
   }
 
-  lazy val suite: AsyncTestSuite = this
+  private lazy val suite: AsyncTestSuite = this
 
   def client: TestClient = new TestClient {
     override def serverUri: Option[Uri] = suite match {
