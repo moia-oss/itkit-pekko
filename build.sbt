@@ -6,18 +6,20 @@ lazy val itkit =
   project
     .in(file("."))
     .settings(
-      name         := "itkit-pekko",
-      organization := "io.moia",
-      licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
-      scmInfo  := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
-      homepage := Some(url("https://github.com/moia-oss/itkit-pekko"))
+      name                 := "itkit-pekko",
+      organization         := "io.moia",
+      organizationName     := "MOIA",
+      organizationHomepage := Some(url("https://moia.io/")),
+      licenses             := List(("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0"))),
+      scmInfo              := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
+      homepage             := Some(url("https://github.com/moia-oss/itkit-pekko"))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
       GitVersioning,
       GitBranchPrompt
     )
-    .settings(sonatypeSettings: _*)
+    .settings(sonatypeSettings *)
     .settings(commonSettings)
     .settings(libraryDependencies ++= library.dependencies)
 
@@ -26,7 +28,7 @@ lazy val samples =
     .in(file("samples"))
     .configs(IntegrationWithTest)
     .dependsOn(itkit)
-    .settings(IntegrationTestSettings: _*)
+    .settings(IntegrationTestSettings *)
     .settings(commonSettings)
     .settings(
       fork            := true,
@@ -90,6 +92,7 @@ lazy val commonSettings =
     sbtGitSettings
 
 lazy val compilerSettings = Seq(
+  scalaVersion                                                       := "2.13.18",
   crossScalaVersions                                                 := Seq("2.13.18", "3.7.4"),
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
@@ -113,8 +116,8 @@ lazy val compilerSettings = Seq(
     "-target",
     "1.8"
   ),
-  Compile / unmanagedSourceDirectories := Seq((Compile / scalaSource).value),
-  Test / unmanagedSourceDirectories    := Seq((Test / scalaSource).value)
+  Compile / unmanagedSourceDirectories                               := Seq((Compile / scalaSource).value),
+  Test / unmanagedSourceDirectories                                  := Seq((Test / scalaSource).value)
 )
 
 lazy val gitSettings = Seq(git.useGitDescribe := true)
@@ -125,9 +128,9 @@ lazy val licenseSettings = Seq(
 )
 
 lazy val sonatypeSettings = {
-  import xerial.sbt.Sonatype._
+  import xerial.sbt.Sonatype.*
   Seq(
-    publishTo              := sonatypePublishTo.value,
+    publishTo              := localStaging.value,
     sonatypeProfileName    := organization.value,
     publishMavenStyle      := true,
     sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit-pekko", "oss-support@moia.io")),

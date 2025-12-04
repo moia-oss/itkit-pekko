@@ -2,8 +2,7 @@
  * Copyright (c) MOIA GmbH 2017
  */
 
-package io.moia
-package itkit
+package io.moia.itkit
 
 import pureconfig.ConfigSource
 import pureconfig.ConfigReader
@@ -21,8 +20,8 @@ object ConfigLoader extends Logger {
 
   implicit private val clientPekkaConfigReader: ConfigReader[ClientPekkaConfig] =
     ConfigReader.forProduct1("loglevel")(ClientPekkaConfig.apply)
-  implicit private val clientConfigReader: ConfigReader[ClientConfig]   = ConfigReader.forProduct1("pekko")(ClientConfig.apply)
-  implicit private val processConfigReader: ConfigReader[ProcessConfig] = ConfigReader.forProduct10(
+  implicit private val clientConfigReader: ConfigReader[ClientConfig]           = ConfigReader.forProduct1("pekko")(ClientConfig.apply)
+  implicit private val processConfigReader: ConfigReader[ProcessConfig]         = ConfigReader.forProduct10(
     "await-log-timeout",
     "initial-memory-allocation-pool",
     "maximum-memory-allocation-pool",
@@ -34,5 +33,5 @@ object ConfigLoader extends Logger {
     "min-threads",
     "max-threads"
   )(ProcessConfig.apply)
-  implicit private val configReader: ConfigReader[Config] = ConfigReader.forProduct2("process", "client")(Config.apply)
+  implicit private val configReader: ConfigReader[Config]                       = ConfigReader.forProduct2("process", "client")(Config.apply)
 }

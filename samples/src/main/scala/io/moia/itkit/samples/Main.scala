@@ -30,7 +30,7 @@ object Main extends Logger {
         println("Unknown option " + option)
         sys.exit(1)
     }
-    val options = nextOption(Map(), args.toList)
+    val options                                                   = nextOption(Map.empty, args.toList)
 
     val port      = options.getOrElse(Symbol("port"), "50001").toInt
     val interface = options.getOrElse(Symbol("host"), "localhost")

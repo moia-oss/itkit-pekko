@@ -2,8 +2,7 @@
  * Copyright (c) MOIA GmbH 2017
  */
 
-package io.moia
-package itkit
+package io.moia.itkit
 
 import scala.sys.process.Process
 
