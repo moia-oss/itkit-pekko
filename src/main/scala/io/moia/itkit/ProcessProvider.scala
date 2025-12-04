@@ -23,16 +23,16 @@ trait ProcessProvider extends Logger {
   // Message which is being yield when the port information is provided.
   def portMessage: Regex
 
-  // Optional configuration parametes to be added as -D params during start of the process
+  // Optional configuration parameters to be added as -D params during start of the process
   def additionalSystemProperties: Map[String, String] = Map.empty
 
   // Optional additional arguments passed directly to the invocation of the java command,
   // e.g. to attach a remote debugger using:
   // -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005
-  def additionalJavaArgs: List[String] = List.empty
+  private def additionalJavaArgs: List[String] = List.empty
 
   // Optional environment variables to be parsed during start of the process.
-  def withEnv: Map[String, String] = Map.empty
+  private def withEnv: Map[String, String] = Map.empty
 
   /** Runs the process builder returning the started process.
     *
@@ -92,7 +92,7 @@ trait ProcessProvider extends Logger {
     f
   }
 
-  def urlses(cl: ClassLoader): Array[java.net.URL] = cl match {
+  private def urlses(cl: ClassLoader): Array[java.net.URL] = cl match {
     case null                       => Array()
     case u: java.net.URLClassLoader => u.getURLs ++ urlses(cl.getParent)
     case _                          => urlses(cl.getParent)

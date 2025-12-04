@@ -5,7 +5,7 @@
 package io.moia.itkit
 
 import scala.concurrent.duration.FiniteDuration
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
 final case class Config(process: ProcessConfig = ProcessConfig(), client: ClientConfig = ClientConfig())
 
