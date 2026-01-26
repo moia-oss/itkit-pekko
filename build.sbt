@@ -93,7 +93,7 @@ lazy val commonSettings =
 
 lazy val compilerSettings = Seq(
   scalaVersion                                                       := "2.13.18",
-  crossScalaVersions                                                 := Seq("2.13.18", "3.7.4"),
+  crossScalaVersions                                                 := Seq("2.13.18", "3.8.1"),
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
