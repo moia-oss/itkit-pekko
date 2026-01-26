@@ -93,14 +93,14 @@ lazy val commonSettings =
 
 lazy val compilerSettings = Seq(
   scalaVersion                                                       := "2.13.18",
-  crossScalaVersions                                                 := Seq("2.13.18", "3.7.4"),
+  crossScalaVersions                                                 := Seq("2.13.18", "3.8.1"),
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
     "-unchecked",
     "-deprecation",
     "-release",
-    "8",
+    "17",
     "-encoding",
     "UTF-8",
     "-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector",
@@ -112,9 +112,9 @@ lazy val compilerSettings = Seq(
   ),
   javacOptions ++= Seq(
     "-source",
-    "1.8",
+    "17",
     "-target",
-    "1.8"
+    "17"
   ),
   Compile / unmanagedSourceDirectories                               := Seq((Compile / scalaSource).value),
   Test / unmanagedSourceDirectories                                  := Seq((Test / scalaSource).value)
