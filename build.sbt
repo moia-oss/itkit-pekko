@@ -100,7 +100,7 @@ lazy val compilerSettings = Seq(
     "-unchecked",
     "-deprecation",
     "-release",
-    "8",
+    "17",
     "-encoding",
     "UTF-8",
     "-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector",
@@ -112,9 +112,9 @@ lazy val compilerSettings = Seq(
   ),
   javacOptions ++= Seq(
     "-source",
-    "1.8",
+    "17",
     "-target",
-    "1.8"
+    "17"
   ),
   Compile / unmanagedSourceDirectories                               := Seq((Compile / scalaSource).value),
   Test / unmanagedSourceDirectories                                  := Seq((Test / scalaSource).value)
