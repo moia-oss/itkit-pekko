@@ -4,6 +4,11 @@ project/project
 target
 /.bsp/sbt.json
 
+# VSCode
+.bloop
+.metals
+.vscode
+
 # Worksheets (Eclipse or IntelliJ)
 *.sc
 
