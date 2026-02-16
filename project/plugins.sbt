@@ -14,8 +14,5 @@ addSbtPlugin("com.github.sbt" % "sbt-header" % "5.11.0")
 // Formatting takes place before the project is compiled.
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.6")
 
-// Publish to sonatype
-addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.12.2")
-
 // publishSigned
 addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.3.1")

@@ -83,13 +83,7 @@ lazy val library = new {
 // Settings
 // *****************************************************************************
 
-lazy val commonSettings =
-  compilerSettings ++
-    gitSettings ++
-    licenseSettings ++
-    sbtSettings ++
-    scalaFmtSettings ++
-    sbtGitSettings
+lazy val commonSettings = compilerSettings ++ licenseSettings ++ sbtSettings ++ scalaFmtSettings ++ sbtGitSettings
 
 lazy val compilerSettings = Seq(
   scalaVersion                                                       := "2.13.18",
@@ -120,25 +114,18 @@ lazy val compilerSettings = Seq(
   Test / unmanagedSourceDirectories                                  := Seq((Test / scalaSource).value)
 )
 
-lazy val gitSettings = Seq(git.useGitDescribe := true)
-
 lazy val licenseSettings = Seq(
   headerLicense  := Some(HeaderLicense.Custom("Copyright (c) MOIA GmbH 2017")),
   headerMappings := headerMappings.value + (HeaderFileType.conf -> HeaderCommentStyle.hashLineComment)
 )
 
-lazy val sonatypeSettings = {
-  import xerial.sbt.Sonatype.*
-  Seq(
-    publishTo              := localStaging.value,
-    sonatypeProfileName    := organization.value,
-    publishMavenStyle      := true,
-    sonatypeProjectHosting := Some(GitHubHosting("moia-oss", "itkit-pekko", "oss-support@moia.io")),
-    credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
-  )
-}
+lazy val sonatypeSettings = Seq(
+  publishTo         := localStaging.value,
+  publishMavenStyle := true,
+  credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credential")
+)
 
-lazy val sbtSettings = Seq(cancelable in Global := true)
+lazy val sbtSettings = Seq(Global / cancelable := true)
 
 lazy val scalaFmtSettings = Seq(scalafmtOnCompile := true)
 

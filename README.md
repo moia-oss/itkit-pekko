@@ -14,19 +14,19 @@ which can be used for sending requests to the server instance.
 
 [Tag](https://github.com/moia-oss/itkit-pekko/tags) the new version (e.g. `v3.0.0`) and push the tags (`git push origin --tags`).
 
-You need a [public GPG key](https://www.scala-sbt.org/release/docs/Using-Sonatype.html) with your MOIA email and an account on https://oss.sonatype.org that can [access](https://issues.sonatype.org/browse/OSSRH-52948) the `io.moia` group.
+You need a [public GPG key](https://www.scala-sbt.org/release/docs/Using-Sonatype.html) with your MOIA email and an account on https://central.sonatype.com that can [access](https://central.sonatype.org/faq/what-happened-to-issues-sonatype-org/#i-used-to-registerupdate-my-ossrh-account-at-issuessonatypeorg-what-do-i-do-now) the `io.moia` namespace.
 
-Add your credentials to `~/.sbt/sonatype_credential` and run
+Add your credentials to `~/.sbt/sonatype_credential` and run:
 ```sbt
 sbt +publishSigned
 ```
 
-Then close and release the [repository](https://oss.sonatype.org/#stagingRepositories).
+Then release:
 ```sbt
 sbt +sonatypeRelease
 ```
 
-Afterwards, add the release to [GitHub](https://github.com/moia-oss/itkit/releases).
+Afterward, add the release to [GitHub](https://github.com/moia-oss/itkit/releases).
 
 ## Usage
 
@@ -80,8 +80,6 @@ This framework takes advantage of log messages in order to achieve this communic
 test needs to know when the server is ready to receive http requests which is communicated through the
 `mainSuccessMessage`. The port is also communicated through a match of `portMessage` regular expression.
 
-
-
 ### One server per test with global configuration
 
 ```scala
@@ -114,14 +112,14 @@ import io.moia.itkit.{OneServerPerTest, ProcessProvider}
 import org.scalatest.{AsyncWordSpecLike, Matchers}
 
 object SampleProcessPerTestSpec {
-  val firstProcessProvider = new ProcessProvider {
+  val firstProcessProvider: ProcessProvider = new ProcessProvider {
     override val mainClass = "io.your.first.project.Main"
     override val mainSuccessMessage = "Application is running."
     override val portMessage = ".*port: ([0-9]+).*".r
     override val additionalSystemProperties = Map("akka.loglevel" -> "DEBUG")
   }
 
-  val secondProcessProvider = new ProcessProvider {
+  val secondProcessProvider: ProcessProvider = new ProcessProvider {
     override val mainClass = "io.your.second.project.Main"
     override val mainSuccessMessage = "Application is ready."
     override val portMessage = ".*port: ([0-9]+).*".r
@@ -129,17 +127,18 @@ object SampleProcessPerTestSpec {
 }
 
 class SampleProcessPerTestSpec extends AsyncWordSpecLike with Matchers with OneServerPerTest {
+
   import SampleProcessPerTestSpec._
 
   "Sample server per test" should {
 
-      "show that a new server is started per test with individual routes while using loan-fixture method `withProcess`" when {
+    "show that a new server is started per test with individual routes while using loan-fixture method `withProcess`" when {
 
-        "first test is executed" in withProcess(firstProcessProvider) { process =>
-          process.port shouldBe 2442
-        }
+      "first test is executed" in withProcess(firstProcessProvider) { process =>
+        process.port shouldBe 2442
       }
     }
+  }
 
   "Sample server per test" should {
 
