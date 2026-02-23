@@ -21,9 +21,9 @@ Add your credentials to `~/.sbt/sonatype_credential` and run:
 sbt +publishSigned
 ```
 
-Then release:
+Then upload:
 ```sbt
-sbt +sonatypeRelease
+sbt +sonaUpload
 ```
 
 Afterward, add the release to [GitHub](https://github.com/moia-oss/itkit/releases).
