@@ -1,7 +1,8 @@
 # scala-itkit for Pekko
 
 ![Build & Test](https://github.com/moia-oss/itkit-pekko/workflows/Build%20&%20Test/badge.svg)
-[![Scala 2.13](https://img.shields.io/maven-central/v/io.moia/itkit-pekko_2.13.svg)](https://search.maven.org/search?q=itkit_2.13)
+[![Scala 2.13](https://img.shields.io/maven-central/v/io.moia/itkit-pekko_2.13.svg)](https://search.maven.org/search?q=itkit-pekko_2.13)
+[![Scala 3](https://img.shields.io/maven-central/v/io.moia/itkit-pekko_3.svg)](https://search.maven.org/search?q=itkit-pekko_3)
 [![Scala Steward badge](https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=)](https://scala-steward.org)
 
 This framework aims towards reduction of boilerplate produced during development of integration tests. It contains
@@ -15,18 +16,19 @@ which can be used for sending requests to the server instance.
 [Tag](https://github.com/moia-oss/itkit-pekko/tags) the new version (e.g. `v3.0.0`) and push the tags (`git push origin --tags`).
 
 You need a [public GPG key](https://www.scala-sbt.org/release/docs/Using-Sonatype.html) with your MOIA email and an account on https://central.sonatype.com that can [access](https://central.sonatype.org/faq/what-happened-to-issues-sonatype-org/#i-used-to-registerupdate-my-ossrh-account-at-issuessonatypeorg-what-do-i-do-now) the `io.moia` namespace.
+Add your credentials to `~/.sbt/sonatype_credential`.
 
-Add your credentials to `~/.sbt/sonatype_credential` and run:
-```sbt
+First run:
+```bash
 sbt +publishSigned
 ```
 
-Then upload:
-```sbt
-sbt +sonaUpload
+Then release:
+```bash
+sbt sonaRelease
 ```
 
-Afterward, add the release to [GitHub](https://github.com/moia-oss/itkit/releases).
+Afterward, add the release to [GitHub](https://github.com/moia-oss/itkit-pekko/releases).
 
 ## Usage
 
