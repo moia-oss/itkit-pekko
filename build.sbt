@@ -12,7 +12,8 @@ lazy val itkit =
       organizationHomepage := Some(url("https://moia.io/")),
       licenses             := List(("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0"))),
       scmInfo              := Some(ScmInfo(url("https://github.com/moia-oss/itkit-pekko"), "scm:git@github.com:moia-oss/itkit-pekko.git")),
-      homepage             := Some(url("https://github.com/moia-oss/itkit-pekko"))
+      homepage             := Some(url("https://github.com/moia-oss/itkit-pekko")),
+      developers           := List(Developer("saeltz", "Bendix Sältz", "bendix.saeltz@moia.io", url("https://github.com/saeltz")))
     )
     .enablePlugins(
       AutomateHeaderPlugin,
