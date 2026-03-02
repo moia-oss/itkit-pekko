@@ -88,7 +88,7 @@ lazy val commonSettings = compilerSettings ++ licenseSettings ++ sbtSettings ++ 
 
 lazy val compilerSettings = Seq(
   scalaVersion                                                       := "2.13.18",
-  crossScalaVersions                                                 := Seq("2.13.18", "3.8.1"),
+  crossScalaVersions                                                 := Seq("2.13.18", "3.8.2"),
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
