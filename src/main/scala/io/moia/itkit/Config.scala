@@ -10,7 +10,7 @@ import scala.concurrent.duration.*
 final case class Config(process: ProcessConfig = ProcessConfig(), client: ClientConfig = ClientConfig())
 
 final case class ProcessConfig(
-    awaitLogTimeout: FiniteDuration = 5.seconds,
+    awaitLogTimeout: FiniteDuration = 10.seconds,
     initialMemoryAllocationPool: String = "128m",
     maximumMemoryAllocationPool: String = "512m",
     concGCThreads: Int = 2,
