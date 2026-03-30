@@ -58,7 +58,7 @@ lazy val library = new {
     val pureConfig   = "0.17.10"
     val scalaCheck   = "1.19.0"
     val scalaLogging = "3.9.6"
-    val scalaTest    = "3.2.19"
+    val scalaTest    = "3.2.20"
   }
 
   val dependencies = Seq(
