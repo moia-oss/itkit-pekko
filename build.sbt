@@ -52,7 +52,7 @@ lazy val IntegrationTestConfig   =
 
 lazy val library = new {
   object Version {
-    val pekko        = "1.4.0"
+    val pekko        = "1.5.0"
     val pekkoHttp    = "1.3.0"
     val log4j        = "2.25.4"
     val pureConfig   = "0.17.10"
@@ -88,7 +88,7 @@ lazy val commonSettings = compilerSettings ++ licenseSettings ++ sbtSettings ++ 
 
 lazy val compilerSettings = Seq(
   scalaVersion                                                       := "2.13.18",
-  crossScalaVersions                                                 := Seq("2.13.18", "3.8.2"),
+  crossScalaVersions                                                 := Seq("2.13.18", "3.8.3"),
   versionScheme                                                      := Some("early-semver"),
   Compile / packageBin / mappings += baseDirectory.value / "LICENSE" -> "LICENSE",
   scalacOptions ++= Seq(
