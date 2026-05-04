@@ -52,7 +52,7 @@ lazy val IntegrationTestConfig   =
 
 lazy val library = new {
   object Version {
-    val pekko        = "1.5.0"
+    val pekko        = "1.6.0"
     val pekkoHttp    = "1.3.0"
     val log4j        = "2.25.4"
     val pureConfig   = "0.17.10"
