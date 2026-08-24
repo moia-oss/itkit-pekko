@@ -12,7 +12,7 @@ addSbtPlugin("com.github.sbt" % "sbt-header" % "5.11.0")
 // Formatting in scala
 // See .scalafmt.conf for configuration details.
 // Formatting takes place before the project is compiled.
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.6.1")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.6.2")
 
 // publishSigned
-addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.3.1")
+addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.3.2")
