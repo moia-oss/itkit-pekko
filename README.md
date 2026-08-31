@@ -1,3 +1,6 @@
+> [!WARNING]
+> Discontinued and archived on August 31st 2026.
+
 # scala-itkit for Pekko
 
 ![Build & Test](https://github.com/moia-oss/itkit-pekko/workflows/Build%20&%20Test/badge.svg)
